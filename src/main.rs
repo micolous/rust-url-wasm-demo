@@ -19,7 +19,11 @@ fn App() -> Html {
                 .value();
 
             match Url::parse(&input) {
-                Ok(url) => feedback.set(format!("Parsed OK! url.to_string() = {:?}\n{:#?}", url.to_string(), url)),
+                Ok(url) => feedback.set(format!(
+                    "Parsed OK! url.to_string() = {:?}\n{:#?}",
+                    url.to_string(),
+                    url
+                )),
                 Err(err) => feedback.set(format!("Error: {err:?}")),
             }
             event.prevent_default();
